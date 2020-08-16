@@ -5,10 +5,11 @@ if ('serviceWorker' in navigator) {
 
         if(reg.installing) {
             console.log('Service worker installing');
+            document.getElementById("p1").innerHTML = "Status: installing";
         } else if(reg.waiting) {
-            console.log('Service worker installed');
+            document.getElementById("p1").innerHTML = "Status: installed";
         } else if(reg.active) {
-            console.log('Service worker active');
+            document.getElementById("p1").innerHTML = "Status: active";
         }
 
     }).catch(function(error) {
