@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" manifest="app_cache.appcache">
+<html lang="en" manifest="cache.manifest">
+<script>
+    window.applicationCache.ondownloading=function(){document.getElementById("progress").innerHTML="Page Caching Started!!"};
+    window.applicationCache.onprogress=function(a){document.getElementById("progress").innerHTML="Caching Status: "+(Math.round(100*(a.loaded/a.total)))+"% Completed"};
+    window.applicationCache.oncached=function(){document.getElementById("progress").innerHTML="Page Cached Successfully!!";setTimeout(function(){document.getElementById("progress").innerHTML="Turn Off the Internet & Reopen the Page to Run the Exploit!!"; }, 1500);};
+    window.applicationCache.onnoupdate=function(){setTimeout(function(){load_JB(); }, 1500);};
+    window.applicationCache.onerror=function(){setTimeout(function(){load_JB(); }, 1500);};
+</script>
 <head>
     <meta charset="UTF-8">
-    <script src="./test.js"></script>
-    <title>Cache Test</title>
+    <title>Title</title>
 </head>
 <body>
-    <p id="p1">Status: </p>
-    <button onclick="f()">Click Me</button>
+    <h1 id="progress" style="margin-top:30px;text-align:center;">PS4 Jailbreak 6.72</h1><hr>
 </body>
 </html>
